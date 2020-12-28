@@ -86,4 +86,10 @@ def mine_block():
 
 #Getting the full Blockchain
 @app.route('/get_chain', methods = ['GET'])
-def get_chain()
+def get_chain():
+    response = {'chain': blockchain.chain,
+                'length': len(blockchain.chain)}
+    return jsonify(response), 200
+
+#Running the App
+app.run(host = '0.0.0.0', port = 5000)
